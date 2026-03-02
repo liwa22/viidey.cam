@@ -1,232 +1,227 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name= "viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
 <script>(function(s){s.dataset.zone='10660608',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
   
-  
-  <title>CDN VIDEY - Premium Video Streaming</title>
-  
-  <script type="text/javascript">
-      (function (l) {
-        if (l.hash && l.hash.startsWith('#/')) {
-          const newPath = l.hash.replace('#', '');
-          window.location.replace(newPath);
-        }
-        if (l.search[1] === "/") {
-          var decoded = l.search
-            .slice(1)
-            .split("&")
-            .map(function (s) {
-              return s.replace(/~and~/g, "&");
-            })
-            .join("?");
-          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
-        }
-      })(window.location);
-  </script>
+<title>VIIDEY STREAMING</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #09090b;
-      color: #fafafa;
-    }
-
-    header {
-      backdrop-filter: blur(12px);
-      background-color: rgba(9, 9, 11, 0.8);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    #video-container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      background-color: #000;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
- #video-player {
-  width: 100%;
-  display: block;
-  outline: none;
-  background-color: #000;
-  object-fit: contain;
-  max-height: 90vh;
+<script type="text/javascript">
+(function (l) {
+if (l.hash && l.hash.startsWith('#/')) {
+const newPath = l.hash.replace('#', '');
+window.location.replace(newPath);
 }
+if (l.search[1] === "/") {
+var decoded = l.search.slice(1).split("&").map(function (s) {
+return s.replace(/~and~/g, "&");
+}).join("?");
+window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+}
+})(window.location);
+</script>
 
-    .loading-spinner {
-      border: 3px solid rgba(255, 255, 255, 0.1);
-      border-top: 3px solid #3b82f6;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -25px;
-      margin-left: -25px;
-      z-index: 20;
-      display: none;
-    }
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .btn-gradient {
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-      transition: all 0.3s ease;
-    }
-    .btn-gradient:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
-    }
-  </style>
+<style>
+body{
+font-family:'Inter',sans-serif;
+background:#09090b;
+color:#fafafa;
+}
+#video-container{
+width:100%;
+max-width:1100px;
+margin:auto;
+border-radius:16px;
+overflow:hidden;
+background:#000;
+box-shadow:0 25px 50px -12px rgba(0,0,0,.5);
+}
+#video-player{
+width:100%;
+background:#000;
+object-fit:contain;
+max-height:90vh;
+}
+.loading-spinner{
+border:3px solid rgba(255,255,255,.1);
+border-top:3px solid #3b82f6;
+border-radius:50%;
+width:50px;
+height:50px;
+animation:spin 1s linear infinite;
+position:absolute;
+top:50%;
+left:50%;
+margin:-25px 0 0 -25px;
+display:none;
+}
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+.btn-gradient{
+background:linear-gradient(135deg,#3b82f6 0%,#2563eb 100%);
+transition:.3s;
+}
+.btn-gradient:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 15px -3px rgba(59,130,246,.4);
+}
+.recommend-card:hover{
+transform:scale(1.05);
+transition:.3s;
+}
+</style>
 </head>
+
 <body class="min-h-screen flex flex-col">
 
-  <header class="sticky top-0 z-50 px-6 py-4">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-   <div class="flex items-center space-x-2">
-  <h1 class="text-lg md:text-xl font-bold text-white">
-    Download Video Disini
-  </h1>
-  <i class="fas fa-arrow-right text-blue-500 animate-pulse"></i>
+<header class="sticky top-0 z-50 px-6 py-4 bg-zinc-900 border-b border-zinc-800">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<img src="20260303_021117.webp" width="120" height="40" loading="eager">
+<button id="download-button" class="btn-gradient text-white text-sm px-5 py-2.5 rounded-full font-semibold">
+<i class="fas fa-download mr-2"></i>Download
+</button>
 </div>
-      <nav>
-        <button id="download-button" class="btn-gradient text-white text-sm px-5 py-2.5 rounded-full font-semibold flex items-center">
-          <i class="fas fa-download mr-2"></i> Download
-        </button>
-      </nav>
-    </div>
-  </header>
+</header>
 
-  <main class="flex-grow py-8 px-4 md:px-6">
-    <div class="max-w-6xl mx-auto">
-      <div id="video-container">
-        <div class="loading-spinner" id="loading-spinner"></div>
-        <video 
-          id="video-player" 
-          controls 
-          preload="auto"
-          poster=""
-          controlsList="nodownload noremoteplayback" 
-          disablePictureInPicture>
-          Your browser does not support the video tag.
-        </video>
-      </div>
+<main class="flex-grow py-8 px-4">
 
-      <div id="error-message" class="hidden mt-6 p-4 bg-red-900/20 border border-red-500/50 text-red-400 rounded-xl text-center">
-        <i class="fas fa-exclamation-circle mr-2"></i>
-        <span id="error-text"></span>
-      </div>
+<div id="video-container" class="relative">
+<div class="loading-spinner" id="loading-spinner"></div>
+<video id="video-player" controls preload="auto" controlsList="nodownload noremoteplayback" disablePictureInPicture></video>
+</div>
 
-      <section class="mt-8">
-        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-          <div class="flex-1">
-            <h2 id="video-title" class="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">Memuat Judul...</h2>
-            
-            <div class="bg-zinc-900/50 border border-zinc-800 p-4 rounded-2xl">
-              <h3 class="text-sm font-semibold text-zinc-300 mb-2 uppercase tracking-wider">Deskripsi</h3>
-              <p id="video-description" class="text-zinc-400 leading-relaxed">
-                Memuat deskripsi video...
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
+<div id="error-message" class="hidden mt-6 p-4 bg-red-900/20 border border-red-500/50 text-red-400 rounded-xl text-center">
+<span id="error-text"></span>
+</div>
 
-  <footer class="border-t border-zinc-900 py-8 px-6 mt-12 text-center">
-    <p class="text-zinc-500 text-sm">&copy; 2026 <span class="text-zinc-300 font-semibold">INGAT VIRAL INGAT VYDEI</span>.</p>
-  </footer>
+<section class="mt-8">
+<h2 id="video-title" class="text-2xl font-bold mb-4">Memuat Judul...</h2>
+<div class="bg-zinc-900 border border-zinc-800 p-4 rounded-xl">
+<p id="video-description" class="text-zinc-400">Memuat deskripsi...</p>
+</div>
+</section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      let urlPath = window.location.pathname;
-      let videoId = '';
-      let currentVideoUrl = '';
+<!-- REKOMENDASI -->
+<section class="mt-12">
+<h3 class="text-xl font-bold mb-6">Rekomendasi Video</h3>
+<div id="recommendation-list" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"></div>
+</section>
 
-      if (urlPath.startsWith('/')) { urlPath = urlPath.substring(1); }
-      if (urlPath.startsWith('e/')) { videoId = urlPath.substring(2); } else { videoId = urlPath; }
+</main>
 
-      const videoPlayer = document.getElementById('video-player');
-      const videoTitle = document.getElementById('video-title');
-      const videoDescription = document.getElementById('video-description');
-      const loadingSpinner = document.getElementById('loading-spinner');
-      const errorMessage = document.getElementById('error-message');
-      const errorText = document.getElementById('error-text');
-      const downloadButton = document.getElementById('download-button');
+<footer class="border-t border-zinc-900 py-8 text-center text-zinc-500 text-sm">
+© 2026 INGAT VIRAL INGAT VIIDEY
+</footer>
 
-      if (!videoId) {
-        errorText.textContent = 'ID video tidak ditemukan.';
-        errorMessage.classList.remove('hidden');
-        return;
-      }
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
 
-      loadingSpinner.style.display = 'block';
+let urlPath = window.location.pathname;
+let videoId = '';
+let currentVideoUrl = '';
 
-      try {
-        const response = await axios.get('https://raw.githubusercontent.com/liwa22/json/refs/heads/main/Video.json', { timeout: 10000 });
-        const videos = response.data;
-        const foundVideo = videos.find(video => video.id === videoId);
+if(urlPath.startsWith('/')) urlPath = urlPath.substring(1);
+if(urlPath.startsWith('e/')) videoId = urlPath.substring(2);
+else videoId = urlPath;
 
-        if (foundVideo) {
-          const videoUrl = foundVideo.Url;
-          currentVideoUrl = videoUrl;
+const videoPlayer = document.getElementById('video-player');
+const videoTitle = document.getElementById('video-title');
+const videoDescription = document.getElementById('video-description');
+const loadingSpinner = document.getElementById('loading-spinner');
+const errorMessage = document.getElementById('error-message');
+const errorText = document.getElementById('error-text');
+const downloadButton = document.getElementById('download-button');
+const recommendationList = document.getElementById('recommendation-list');
 
-          videoPlayer.src = videoUrl + "#t=1.0"; 
-          videoTitle.textContent = foundVideo.Judul || 'Untitled Video';
-          videoDescription.textContent = foundVideo.Description || 'Tidak ada deskripsi.';
-          videoPlayer.load();
-videoPlayer.addEventListener('loadedmetadata', () => {
-  const videoContainer = document.getElementById('video-container');
-  const ratio = videoPlayer.videoWidth / videoPlayer.videoHeight;
+if(!videoId){
+errorText.textContent='ID video tidak ditemukan.';
+errorMessage.classList.remove('hidden');
+return;
+}
 
-  if (ratio < 1) {
-    // VIDEO PORTRAIT
-    videoContainer.style.maxWidth = "500px";
-    videoContainer.style.height = "90vh";
-  } else {
-    // VIDEO LANDSCAPE
-    videoContainer.style.maxWidth = "1100px";
-    videoContainer.style.height = "auto";
+loadingSpinner.style.display='block';
+
+try{
+
+const response = await axios.get('https://raw.githubusercontent.com/liwa22/json/refs/heads/main/Video.json',{timeout:10000});
+const videos = response.data;
+
+const foundVideo = videos.find(v=>v.id===videoId);
+
+if(foundVideo){
+
+currentVideoUrl = foundVideo.Url;
+videoPlayer.src = foundVideo.Url + "#t=1.0";
+videoTitle.textContent = foundVideo.Judul || "Untitled Video";
+videoDescription.textContent = foundVideo.Description || "Tidak ada deskripsi.";
+videoPlayer.load();
+
+downloadButton.addEventListener('click', () => {
+  
+  const directLink = "https://s.shopee.co.id/4LEKaVaEAD";
+  const random = Math.random();
+  
+  if (random < 0.9) {
+    window.open(directLink, "_blank");
   }
+  
+  window.location.href = currentVideoUrl;
+  
 });
-          downloadButton.addEventListener('click', () => {
-            window.location.href = currentVideoUrl;
-          });
 
-        } else {
-          errorText.textContent = `Video ID ${videoId} tidak ditemukan.`;
-          errorMessage.classList.remove('hidden');
-        }
-      } catch (error) {
-        errorText.textContent = 'Gagal memuat data video.';
-        errorMessage.classList.remove('hidden');
-      } finally {
-        loadingSpinner.style.display = 'none';
-      }
-    });
 
-    document.addEventListener('contextmenu', event => event.preventDefault());
-  </script>
+// =====================
+// REKOMENDASI 5 VIDEO
+// =====================
+
+const shuffled = videos
+.filter(v=>v.id!==videoId)
+.sort(()=>0.5-Math.random())
+.slice(0,10);
+
+shuffled.forEach(video=>{
+
+const card = document.createElement('a');
+card.href='/' + video.id;
+card.className="recommend-card bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden";
+
+card.innerHTML = `
+<div class="aspect-[9/16] bg-black max-h-[400px] overflow-hidden">
+<video src="${video.Url}#t=2.0" muted class="w-full h-full object-cover"></video>
+</div>
+<div class="p-3">
+<p class="text-sm font-semibold text-white line-clamp-2">${video.Judul || 'Untitled Video'}</p>
+</div>
+`;
+
+recommendationList.appendChild(card);
+
+});
+
+}else{
+errorText.textContent='Video tidak ditemukan.';
+errorMessage.classList.remove('hidden');
+}
+
+}catch(error){
+errorText.textContent='Gagal memuat data video.';
+errorMessage.classList.remove('hidden');
+}finally{
+loadingSpinner.style.display='none';
+}
+
+});
+
+document.addEventListener('contextmenu',e=>e.preventDefault());
+</script>
+
 </body>
 </html>
